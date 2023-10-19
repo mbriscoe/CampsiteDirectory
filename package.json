@@ -2,7 +2,7 @@
     "engines": {
         "node": "18.13.0"
     },
-    "name": "Campground Directory",
+    "name": "CampgroundDirectory",
     "version": "1.0.0",
     "description": "A Full Stack Study App",
     "main": "index.js",
