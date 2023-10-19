@@ -1,23 +1,28 @@
-const mongoose = require('mongoose');
-const cities = require('./cities');
-const { places, descriptors } = require('./seedHelpers');
-const Campground = require('../models/campground');
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
 
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
+const mongoose = require("mongoose");
+const cities = require("./cities");
+const { places, descriptors } = require("./seedHelpers");
+const Campground = require("../models/campground");
+
+const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/yelp-camp";
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database connected");
+    console.log("Database connected: ", dbUrl);
 });
 
-const sample = array => array[Math.floor(Math.random() * array.length)];
-
+const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
@@ -49,8 +54,8 @@ const seedDB = async () => {
         });
         await camp.save();
     }
-}
+};
 
 seedDB().then(() => {
     mongoose.connection.close();
-})
+});

@@ -21,6 +21,7 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require("connect-mongo")(session);
 
+
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 
 mongoose.connect(dbUrl, {
@@ -33,7 +34,7 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database connected");
+    console.log("Database connected: ", dbUrl);
 });
 
 const app = express();
@@ -76,7 +77,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-//app.use(helmet());
+app.use(helmet());
 
 
 const scriptSrcUrls = [
