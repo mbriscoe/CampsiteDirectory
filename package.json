@@ -2,7 +2,7 @@
     "engines": {
         "node": "18.13.0"
     },
-    "name": "yelpcamp",
+    "name": "Campground Directory",
     "version": "1.0.0",
     "description": "A Full Stack Study App",
     "main": "index.js",
