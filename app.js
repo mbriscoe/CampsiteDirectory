@@ -21,7 +21,6 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require("connect-mongo")(session);
 
-
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 
 mongoose.connect(dbUrl, {
@@ -79,7 +78,6 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
 
-
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
@@ -88,6 +86,7 @@ const scriptSrcUrls = [
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
 ];
+
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
     "https://stackpath.bootstrapcdn.com/",
@@ -96,13 +95,16 @@ const styleSrcUrls = [
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
 ];
+
 const connectSrcUrls = [
     "https://api.mapbox.com/",
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
 ];
+
 const fontSrcUrls = [];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -124,7 +126,6 @@ app.use(
     })
 );
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -139,7 +140,6 @@ app.use((req, res, next) => {
     next();
 })
 
-
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes)
 app.use('/campgrounds/:id/reviews', reviewRoutes)
@@ -148,7 +148,6 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.get('/', (req, res) => {
     res.render('home')
 });
-
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
