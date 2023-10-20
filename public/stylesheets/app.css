@@ -16,3 +16,13 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+
+h1 {
+    color:white;
+}
+
+form {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
