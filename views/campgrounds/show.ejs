@@ -42,13 +42,13 @@
             </div>
             <% } %>
             <div class="card-footer text-muted">
-                2 days ago
+                <%= Math.floor(Math.random()*500)+1 %> days ago
             </div>
         </div>
 
     </div>
     <div class="col-6">
-        <div id='map' ></div>
+        <div id='map'></div>
 
         <% if(currentUser){ %>
         <h2 style="color: white">Leave a Review</h2>
@@ -103,7 +103,7 @@
 
 <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const campground = <%- JSON.stringify(campground) %>
+    const campground = <% - JSON.stringify(campground) %>
 </script>
 
 <script src="/javascripts/showPageMap.js"></script>
