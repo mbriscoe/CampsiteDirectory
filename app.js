@@ -21,9 +21,9 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require('connect-mongo')(session);
 
-let dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+let dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/CampsiteDirectory';
 
-if (dbUrl === 'mongodb://127.0.0.1:27017/yelp-camp') {
+if (dbUrl === 'mongodb://127.0.0.1:27017/CampsiteDirectory') {
     dbConnectionMessage = 'Database connected: Locally';
 } else {
     dbConnectionMessage = 'Database connected: Remotely';
