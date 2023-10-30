@@ -23,7 +23,7 @@ const MongoDBStore = require('connect-mongo')(session);
 
 const dbUrl = process.env.REMOTE_DB_URL || process.env.LOCAL_DB_URL;
 
-if (dbUrl === 'mongodb://127.0.0.1:27017/CampsiteDirectory') {
+if (dbUrl === process.env.LOCAL_DB_URL) {
     dbConnectionMessage = 'Database connected: Locally';
 } else {
     dbConnectionMessage = 'Database connected: Remotely';

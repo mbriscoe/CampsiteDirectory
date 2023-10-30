@@ -11,6 +11,12 @@ const User = require('../models/user');
 
 const dbUrl = process.env.REMOTE_DB_URL || process.env.LOCAL_DB_URL;
 
+if (dbUrl === process.env.LOCAL_DB_URL) {
+    dbConnectionMessage = 'Database connected: Locally';
+} else {
+    dbConnectionMessage = 'Database connected: Remotely';
+}
+
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -21,7 +27,7 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-    console.log('Database connected: ', dbUrl);
+    console.log(dbConnectionMessage);
 });
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
