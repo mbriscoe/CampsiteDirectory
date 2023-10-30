@@ -9,7 +9,7 @@ const Campground = require('../models/campground');
 const Review = require('../models/review');
 const User = require('../models/user');
 
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/CampsiteDirectory';
+const dbUrl = process.env.REMOTE_DB_URL || process.env.LOCAL_DB_URL;
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,

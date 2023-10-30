@@ -21,7 +21,7 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoDBStore = require('connect-mongo')(session);
 
-let dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/CampsiteDirectory';
+const dbUrl = process.env.REMOTE_DB_URL || process.env.LOCAL_DB_URL;
 
 if (dbUrl === 'mongodb://127.0.0.1:27017/CampsiteDirectory') {
     dbConnectionMessage = 'Database connected: Locally';
