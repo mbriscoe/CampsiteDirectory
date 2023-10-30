@@ -81,13 +81,13 @@ const seedDB = async () => {
                 },
             ],
         });
-        // SEED REVIEWS FOR THIS
-        const numReviews = Math.floor(Math.random() * 10);
+        // SEED REVIEWS FOR THIS CAMPSITE
+        const numReviews = Math.floor(Math.random() * 10) + 1;
         for (let i = 0; i < numReviews; i++) {
             let review = new Review();
             review.author = userIDs[Math.floor(Math.random() * 4)];
             review.rating = Math.floor(Math.random() * 5) + 1;
-            review.body = userReviews[review.rating];
+            review.body = userReviews[review.rating-1];
             camp.reviews.push(review);
             await review.save();
         }
