@@ -58,6 +58,21 @@ const seedDB = async () => {
     for (let i = 0; i < 200; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
+
+        function getImageArray() {
+            newArray = [];
+            let idx = 0;
+            while (newArray.length < 4) {
+                idx = Math.floor(Math.random() * 10);
+                if (!newArray.includes(idx)) {
+                    newArray.push(idx);
+                }
+            }
+            return newArray;
+        }
+
+        const imgArray = getImageArray();
+
         const camp = new Campground({
             //YOUR USER ID
             author: '653d390c1de4fe0028ebd64b',
@@ -72,12 +87,20 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/001.jpg',
-                    filename: 'CampsiteDirectory/001',
+                    url: `https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/00${imgArray[0]}.jpg`,
+                    filename: `CampsiteDirectory/00${imgArray[0]}`,
                 },
                 {
-                    url: 'https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/002.jpg',
-                    filename: 'CampsiteDirectory/002',
+                    url: `https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/00${imgArray[1]}.jpg`,
+                    filename: `CampsiteDirectory/00${imgArray[1]}`,
+                },
+                {
+                    url: `https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/00${imgArray[2]}.jpg`,
+                    filename: `CampsiteDirectory/00${imgArray[2]}`,
+                },
+                {
+                    url: `https://res.cloudinary.com/dqe5yeugm/image/upload/v1600060601/CampsiteDirectory/00${imgArray[3]}.jpg`,
+                    filename: `CampsiteDirectory/00${imgArray[3]}`,
                 },
             ],
         });
@@ -87,7 +110,7 @@ const seedDB = async () => {
             let review = new Review();
             review.author = userIDs[Math.floor(Math.random() * 4)];
             review.rating = Math.floor(Math.random() * 5) + 1;
-            review.body = userReviews[review.rating-1];
+            review.body = userReviews[review.rating - 1];
             camp.reviews.push(review);
             await review.save();
         }
