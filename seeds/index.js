@@ -27,7 +27,7 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-    console.log(dbConnectionMessage);
+    if (process.env.NODE_ENV !== 'production') console.log(dbConnectionMessage);
 });
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
