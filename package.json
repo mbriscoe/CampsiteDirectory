@@ -1,6 +1,6 @@
 {
     "engines": {
-        "node": "20.x"
+        "node": "18.13.0"
     },
     "name": "CampgroundDirectory",
     "version": "1.0.0",
