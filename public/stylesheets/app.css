@@ -1,28 +1,28 @@
 #cluster-map {
-    width: 100%;
-    height: 500px;
+  width: 100%;
+  height: 500px;
 }
 
 #map {
-    width: 100%;
-    height: 300px;
+  width: 100%;
+  height: 300px;
 }
 
 body {
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1602391833977-358a52198938?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
 }
 
 h1 {
-    color: white;
+  color: white;
 }
 
 form {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
 }
